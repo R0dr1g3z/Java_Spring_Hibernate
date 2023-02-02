@@ -18,4 +18,14 @@ public class Book {
     private String title;
     private int rating;
     private String description;
+
+    public Book() {
+    }
+
+    public Book(int id, String title, int rating, String description) {
+        this.id = id;
+        this.title = title;
+        this.rating = rating;
+        this.description = description;
+    }
 }
