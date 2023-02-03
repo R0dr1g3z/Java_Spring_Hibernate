@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.spring_hibernate.Class.Book;
-import com.example.spring_hibernate.Class.BookDao;
 import com.example.spring_hibernate.Class.Publisher;
-import com.example.spring_hibernate.Class.PublisherDao;
+import com.example.spring_hibernate.Service.BookDao;
+import com.example.spring_hibernate.Service.PublisherDao;
 
 @Controller
 public class PublisherController {

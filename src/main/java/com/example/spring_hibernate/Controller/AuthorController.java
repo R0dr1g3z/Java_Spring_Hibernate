@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.spring_hibernate.Class.Author;
-import com.example.spring_hibernate.Class.AuthorDao;
+import com.example.spring_hibernate.Service.AuthorDao;
 
 @Controller
 public class AuthorController {
