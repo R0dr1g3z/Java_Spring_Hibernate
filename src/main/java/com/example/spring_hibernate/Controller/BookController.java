@@ -1,9 +1,12 @@
-package com.example.spring_hibernate.Class;
+package com.example.spring_hibernate.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.spring_hibernate.Class.Book;
+import com.example.spring_hibernate.Class.BookDao;
 
 @Controller
 public class BookController {
