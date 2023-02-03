@@ -25,7 +25,10 @@ public class PublisherController {
     @ResponseBody
     public String createPublisher() {
         Publisher publisher = new Publisher();
-        Book book = new Book(3, "Calineczka", 8, "Book added to publisher");
+        Book book = new Book();
+        book.setTitle("Basic title 552");
+        book.setDescription("Basic description 552");
+        book.setRating(9);
         bookDao.save(book);
         List<Book> books = Arrays.asList(book);
         publisher.setName("Magazine Time 030");

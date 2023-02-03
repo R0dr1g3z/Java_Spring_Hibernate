@@ -1,10 +1,15 @@
 package com.example.spring_hibernate.Controller;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.spring_hibernate.Class.Author;
+import com.example.spring_hibernate.Class.AuthorDao;
 import com.example.spring_hibernate.Class.Book;
 import com.example.spring_hibernate.Class.BookDao;
 
@@ -12,18 +17,27 @@ import com.example.spring_hibernate.Class.BookDao;
 public class BookController {
     @Autowired
     private BookDao bookDao;
+    @Autowired
+    private AuthorDao authorDao;
 
     @GetMapping("/saveBook")
     @ResponseBody
     public String saveBook() {
-        bookDao.save(new Book(2, "Testing444", 5, "Testing description"));
+        List<Author> authors = Arrays.asList(authorDao.findById(1), authorDao.findById(3));
+        Book book = new Book();
+        book.setTitle("Sand and soil");
+        book.setDescription("Adventure on sand");
+        book.setRating(5);
+        book.setAuthors(authors);
+        bookDao.save(book);
         return "Book is saved";
     }
 
     @GetMapping("/editBook")
     @ResponseBody
     public String editBook(){
-        bookDao.save(new Book(2, "Edited book", 10, "This book is edited by me"));
+        Book book = new Book();
+        bookDao.save(book);
         return "Book is edited";
     }
 

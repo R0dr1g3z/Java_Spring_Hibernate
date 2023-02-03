@@ -1,7 +1,5 @@
 package com.example.spring_hibernate.Controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,14 +25,18 @@ public class AuthorController {
 
     @GetMapping("/readAuthor")
     @ResponseBody
-    public Optional<Author> readAuthor(){
+    public Author readAuthor(){
         return authorDao.findById(1);
     }
 
     @GetMapping("/updateAuthor")
     @ResponseBody
     public String updateAuthor(){
-        authorDao.save(new Author(1, "Hany", "Will"));
+        Author author = new Author();
+        author.setId(1);
+        author.setFirstName("Hany");
+        author.setLastName("Will");
+        authorDao.save(author);
         return "Updated author";
     }
 
