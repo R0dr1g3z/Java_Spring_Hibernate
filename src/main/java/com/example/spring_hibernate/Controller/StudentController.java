@@ -25,12 +25,12 @@ public class StudentController {
     }
 
     @ModelAttribute("skills")
-    public List<String> skills(){
+    public List<String> skills() {
         return Arrays.asList("Java", "Ruby", "Python", "JavaScript", "C++");
     }
 
     @ModelAttribute("hobbies")
-    public List<String> hobbies(){
+    public List<String> hobbies() {
         return Arrays.asList("Ball", "Computer", "Technologies", "Swimming", "Food");
     }
 
@@ -42,7 +42,7 @@ public class StudentController {
 
     @PostMapping("/student")
     @ResponseBody
-    public Student postStudent(Student student){
+    public Student postStudent(Student student) {
         return student;
     }
 }
