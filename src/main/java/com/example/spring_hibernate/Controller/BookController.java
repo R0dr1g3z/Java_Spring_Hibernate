@@ -62,4 +62,17 @@ public class BookController {
     public List<Book> readBooksByRating(@PathVariable int rating){
         return bookDao.findAllBooksByRating(rating);
     }
+
+    @GetMapping("/findBooksWithAuthors")
+    @ResponseBody
+    public List<Book> findAllWithAuthors(){
+        return bookDao.findAllWithAuthors();
+    }
+
+    @GetMapping("/findBooksWithAuthor/{id}")
+    @ResponseBody
+    public List<Book> findBooksWithAuthor(@PathVariable int id){
+        List<Author> authors = Arrays.asList(authorDao.findById(id));
+        return bookDao.findBooksByAuthor(authors);
+    }
 }
