@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.spring_hibernate.Class.Author;
@@ -54,5 +55,11 @@ public class BookController {
         int id = 1;
         bookDao.deleteById(id);
         return String.format("Book by ID:%s is deleted", id);
+    }
+
+    @GetMapping("/readBooksByRating/{rating}")
+    @ResponseBody
+    public List<Book> readBooksByRating(@PathVariable int rating){
+        return bookDao.findAllBooksByRating(rating);
     }
 }
