@@ -16,5 +16,6 @@
 <form:select path="authors" items="${authors}" itemLabel="firstName" multiple="true"/><br>
 <form:button>Create book</form:button>
 </form:form>
+<a href="/formReadBook">List of books</a>
 </body>
 </html>

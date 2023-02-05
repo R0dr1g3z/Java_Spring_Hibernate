@@ -5,26 +5,19 @@
 </head>
 <body>
 <table>
-    
+    <tr>
+        <th>ID:</th>
+        <th>Title:</th>
+        <th>Rating:</th>
+        <th>Description:</th>
+        <th>Authors:</th>
+    </tr>
     <c:forEach items="${books}" var="book">
         <tr>
-            <th>ID:</th>
             <td>${book.id}</td>
-        </tr>
-        <tr>
-            <th>Title:</th>
             <td>${book.title}</td>
-        </tr>
-        <tr>
-            <th>Rating:</th>
             <td>${book.rating}</td>
-        </tr>
-        <tr>
-            <th>Description:</th>
             <td>${book.description}</td>
-        </tr>
-        <tr>
-            <th>Authors:</th>
             <td>${book.authors}</td>
         </tr>
     </c:forEach>
