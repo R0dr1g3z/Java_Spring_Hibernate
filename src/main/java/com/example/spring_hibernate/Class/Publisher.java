@@ -24,6 +24,6 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany
     private List<Book> books = new ArrayList<>();
 }
