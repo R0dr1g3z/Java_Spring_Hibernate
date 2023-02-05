@@ -11,6 +11,7 @@
         <th>Rating:</th>
         <th>Description:</th>
         <th>Authors:</th>
+        <th>Publisher:</th>
         <th>Actions:</th>
     </tr>
     <c:forEach items="${books}" var="book">
@@ -20,6 +21,7 @@
             <td>${book.rating}</td>
             <td>${book.description}</td>
             <td>${book.authors}</td>
+            <td>${book.publisher.name}</td>
             <td><a href="/formEditBook/${book.id}">Edit Book</a>
             <a href="/formDeleteBook/${book.id}">Delete this book</a></td>
         </tr>

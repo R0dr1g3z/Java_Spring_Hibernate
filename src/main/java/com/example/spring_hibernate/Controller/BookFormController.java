@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.spring_hibernate.Class.Book;
 import com.example.spring_hibernate.Service.AuthorDao;
 import com.example.spring_hibernate.Service.BookDao;
+import com.example.spring_hibernate.Service.PublisherDao;
 
 @Controller
 public class BookFormController {
@@ -18,11 +19,14 @@ public class BookFormController {
     private BookDao bookDao;
     @Autowired
     private AuthorDao authorDao;
+    @Autowired
+    private PublisherDao publisherDao;
 
     @GetMapping("/formBook")
     public String getFormBook(Model model){
         model.addAttribute("book", new Book());
         model.addAttribute("authors", authorDao.findAll());
+        model.addAttribute("publishers", publisherDao.findAll());
         return "book";
     }
 

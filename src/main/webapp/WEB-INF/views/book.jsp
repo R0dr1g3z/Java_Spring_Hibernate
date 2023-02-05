@@ -14,6 +14,8 @@
 <form:input path="description"/><br>
 <form:label path="authors">Authors:</form:label>
 <form:select path="authors" items="${authors}" itemLabel="firstName" multiple="true"/><br>
+<form:label path="publisher">Publisher:</form:label>
+<form:select path="publisher" items="${publishers}" itemLabel="name"/><br>
 <form:button>Create book</form:button>
 </form:form>
 <a href="/formReadBook">List of books</a>
