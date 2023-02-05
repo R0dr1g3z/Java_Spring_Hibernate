@@ -19,7 +19,7 @@ public class BookFormController {
     private AuthorDao authorDao;
 
     @GetMapping("/formBook")
-    public String formBook(Model model){
+    public String getFormBook(Model model){
         model.addAttribute("book", new Book());
         model.addAttribute("authors", authorDao.findAll());
         return "book";
@@ -27,8 +27,14 @@ public class BookFormController {
 
     @PostMapping("/formBook")
     @ResponseBody
-    public Book formBookPost(Book book){
+    public Book postFormBook(Book book){
         bookDao.save(book);
         return book;
+    }
+
+    @GetMapping("/formReadBook")
+    public String formReadBookGet(Model model){
+        model.addAttribute("books", bookDao.findAll());
+        return "readBook";
     }
 }
