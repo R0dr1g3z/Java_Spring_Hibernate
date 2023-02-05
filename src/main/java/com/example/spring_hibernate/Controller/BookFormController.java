@@ -27,7 +27,7 @@ public class BookFormController {
         model.addAttribute("book", new Book());
         model.addAttribute("authors", authorDao.findAll());
         model.addAttribute("publishers", publisherDao.findAll());
-        return "book";
+        return "books/book";
     }
 
     @PostMapping("/formBook")
@@ -40,13 +40,13 @@ public class BookFormController {
     @GetMapping("/formReadBook")
     public String formReadBookGet(Model model){
         model.addAttribute("books", bookDao.findAll());
-        return "readBook";
+        return "books/readBook";
     }
 
     @GetMapping("/formEditBook/{id}")
     public String formEditBook(Model model, @PathVariable int id){
         model.addAttribute("book", bookDao.findById(id));
-        return "editBook";
+        return "books/editBook";
     }
 
     @PostMapping("/formEditBook/{id}")
