@@ -1,15 +1,11 @@
 package com.example.spring_hibernate.Class;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.validator.constraints.pl.PESEL;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -35,6 +31,4 @@ public class Author {
     private int pesel;
     @Email
     private String email;
-    @ManyToMany
-    private List<Book> books = new ArrayList<>();
 }
