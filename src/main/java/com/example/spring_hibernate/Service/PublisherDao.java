@@ -6,4 +6,6 @@ import com.example.spring_hibernate.Class.Publisher;
 
 public interface PublisherDao extends CrudRepository<Publisher, Integer> {
     
+    Publisher findByNip(int nip);
+    Publisher findByRegon(int regon);
 }

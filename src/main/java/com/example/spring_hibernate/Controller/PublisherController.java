@@ -58,4 +58,10 @@ public class PublisherController {
         publisherDao.deleteById(1);
         return "Deleted publisher";
     }
+
+    @GetMapping("/publisherCustom")
+    @ResponseBody
+    public Publisher publisherCustom(){
+        return publisherDao.findByRegon(2);
+    }
 }
