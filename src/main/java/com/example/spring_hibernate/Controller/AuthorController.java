@@ -1,5 +1,7 @@
 package com.example.spring_hibernate.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,5 +47,11 @@ public class AuthorController {
     public String deleteAuthor(){
         authorDao.deleteById(2);
         return "Author is deleted";
+    }
+
+    @GetMapping("/customAuthor")
+    @ResponseBody
+    public List<Author> customAuthor(){
+        return authorDao.findByLastNameIgnoreCase("will");
     }
 }
