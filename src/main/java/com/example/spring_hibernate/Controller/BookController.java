@@ -78,7 +78,7 @@ public class BookController {
 
     @GetMapping("/readBookCustom")
     @ResponseBody
-    public Book readBookCustom(){
-        return bookDao.findByAuthors_id(4);
+    public List<Book> readBookCustom(){
+        return bookDao.findFirstByRatingOrderByTitle(7);
     }
 }

@@ -11,10 +11,11 @@ import com.example.spring_hibernate.Class.Book;
 public interface BookDao extends CrudRepository<Book, Integer> {
     
     Book findById(int id);
-
     List<Book> findByTitle(String title);
-
-    Book findByAuthors_id(int id);
+    List<Book> findByAuthors_id(int id);
+    List<Book> findByPublisher_id(int id);
+    List<Book> findByRating(int rating);
+    List<Book> findFirstByRatingOrderByTitle(int rating);
 
     @Query(value = "SELECT b FROM Book b WHERE b.rating > ?1")
     List<Book> findAllBooksByRating(int rating);
