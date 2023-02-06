@@ -3,6 +3,7 @@ package com.example.spring_hibernate.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,8 @@ import com.example.spring_hibernate.Class.Book;
 import com.example.spring_hibernate.Service.AuthorDao;
 import com.example.spring_hibernate.Service.BookDao;
 import com.example.spring_hibernate.Service.PublisherDao;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class BookFormController {
@@ -31,10 +34,12 @@ public class BookFormController {
     }
 
     @PostMapping("/formBook")
-    @ResponseBody
-    public Book postFormBook(Book book){
+    public String postFormBook(@Valid Book book, BindingResult result){
+        if (result.hasErrors()){
+            return "redirect:/formBook";
+        }
         bookDao.save(book);
-        return book;
+        return "redirect:/formReadBook";
     }
 
     @GetMapping("/formReadBook")
