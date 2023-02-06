@@ -75,4 +75,10 @@ public class BookController {
         List<Author> authors = Arrays.asList(authorDao.findById(id));
         return bookDao.findBooksByAuthor(authors);
     }
+
+    @GetMapping("/readBookCustom")
+    @ResponseBody
+    public Book readBookCustom(){
+        return bookDao.findByAuthors_id(4);
+    }
 }
